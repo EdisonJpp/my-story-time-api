@@ -1,18 +1,19 @@
 package storage
 
 import (
-	"cloud.google.com/go/storage"
 	"context"
 	"io"
 	"mime/multipart"
-	storageDomain "mytimes-api/domain/storage"
+	storageDomain "my-story-time-api/domain/storage"
+
+	"cloud.google.com/go/storage"
 )
 
 type storageRepository struct {
 	client *storage.Client
 }
 
-func ProvideStorageRepository(client *storage.Client) storageDomain.StorageRepository {
+func NewStorageRepository(client *storage.Client) storageDomain.StorageRepository {
 	return &storageRepository{client}
 }
 

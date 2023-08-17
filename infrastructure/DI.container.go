@@ -1,10 +1,11 @@
 package infrastructure
 
 import (
+	"my-story-time-api/infrastructure/config"
+	"my-story-time-api/infrastructure/storage"
+	"my-story-time-api/infrastructure/story"
+
 	"go.uber.org/fx"
-	"mytimes-api/infrastructure/config"
-	"mytimes-api/infrastructure/storage"
-	"mytimes-api/infrastructure/story"
 )
 
 var DIContainer = fx.Options(

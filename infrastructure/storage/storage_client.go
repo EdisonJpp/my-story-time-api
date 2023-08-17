@@ -7,7 +7,7 @@ import (
 	"google.golang.org/api/option"
 )
 
-func ProvideStorageClient(lc fx.Lifecycle) *storage.Client {
+func NewStorageClient(lc fx.Lifecycle) *storage.Client {
 	ctx := context.Background()
 
 	client, err := storage.NewClient(ctx, option.WithCredentialsFile("google-cloud-storage-credentials.json"))

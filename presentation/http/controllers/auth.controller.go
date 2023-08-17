@@ -1,8 +1,9 @@
 package controllers
 
 import (
+	authUseCases "my-story-time-api/application/auth/use_cases"
+
 	"github.com/gofiber/fiber/v2"
-	authUseCases "mytimes-api/application/auth/use_cases"
 )
 
 type AuthController struct {
@@ -10,7 +11,7 @@ type AuthController struct {
 	signInUseCase authUseCases.SignInUseCase
 }
 
-func ProvideAuthController(
+func NewAuthController(
 	app *fiber.App,
 	signInUseCase authUseCases.SignInUseCase,
 ) *AuthController {

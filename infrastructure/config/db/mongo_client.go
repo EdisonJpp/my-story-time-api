@@ -8,10 +8,10 @@ import (
 )
 
 type DB struct {
-	myTimesDB *mongo.Database
+	myStoryTimeDB *mongo.Database
 }
 
-func ProvideMongoClient(lc fx.Lifecycle) (*mongo.Client, error) {
+func NewMongoClient(lc fx.Lifecycle) (*mongo.Client, error) {
 	clientOptions := options.Client().ApplyURI("mongodb+srv://edisonjpp:ParWWP2It24jWOUY@cluster0.1tvig.mongodb.net/?retryWrites=true&w=majority")
 	client, err := mongo.Connect(context.Background(), clientOptions)
 

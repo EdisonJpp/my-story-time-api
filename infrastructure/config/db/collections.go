@@ -17,9 +17,9 @@ type collections struct {
 	user  *mongo.Collection
 }
 
-func ProvideCollections(databases *Databases) Collections {
-	story := provideStoryCollection(databases)
-	user := provideUserCollection(databases)
+func NewCollections(databases *Databases) Collections {
+	story := newStoryCollection(databases)
+	user := newUserCollection(databases)
 
 	return &collections{story, user}
 }
@@ -35,8 +35,8 @@ func (c *collections) Get(name string) *mongo.Collection {
 	}
 }
 
-func provideStoryCollection(databases *Databases) *mongo.Collection {
-	storiesCollection := databases.myTimesDB.Collection("c_stories")
+func newStoryCollection(databases *Databases) *mongo.Collection {
+	storiesCollection := databases.myStoryTimeDB.Collection("c_stories")
 
 	opt := options.Index()
 
@@ -51,8 +51,8 @@ func provideStoryCollection(databases *Databases) *mongo.Collection {
 	return storiesCollection
 }
 
-func provideUserCollection(databases *Databases) *mongo.Collection {
-	storiesCollection := databases.myTimesDB.Collection("c_users")
+func newUserCollection(databases *Databases) *mongo.Collection {
+	storiesCollection := databases.myStoryTimeDB.Collection("c_users")
 
 	opt := options.Index()
 	opt.SetUnique(true)

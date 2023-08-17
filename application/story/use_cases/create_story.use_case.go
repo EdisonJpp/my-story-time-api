@@ -1,11 +1,12 @@
 package use_cases
 
 import (
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"mime/multipart"
-	"mytimes-api/domain/storage"
-	"mytimes-api/domain/story"
-	"mytimes-api/infrastructure/shared/utils"
+	"my-story-time-api/domain/storage"
+	"my-story-time-api/domain/story"
+	"my-story-time-api/infrastructure/shared/utils"
+
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type CreateStoryUseCaseRequest struct {
@@ -25,7 +26,7 @@ type createStoryUseCase struct {
 	storageRepository storage.StorageRepository
 }
 
-func ProvideCreateStoryUseCase(storyRepository story.StoryRepository, storageRepository storage.StorageRepository) CreateStoryUseCase {
+func NewCreateStoryUseCase(storyRepository story.StoryRepository, storageRepository storage.StorageRepository) CreateStoryUseCase {
 	return &createStoryUseCase{storyRepository, storageRepository}
 }
 

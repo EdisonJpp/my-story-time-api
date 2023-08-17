@@ -1,4 +1,4 @@
-module mytimes-api
+module my-story-time-api
 
 go 1.20
 

@@ -6,7 +6,7 @@ type SignInUseCase interface {
 
 type signInUseCase struct{}
 
-func ProvideSignInUseCase() SignInUseCase {
+func NewSignInUseCase() SignInUseCase {
 	return &signInUseCase{}
 }
 

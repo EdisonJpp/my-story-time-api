@@ -2,20 +2,21 @@ package story
 
 import (
 	"errors"
+	"my-story-time-api/domain/story"
+	"my-story-time-api/infrastructure/config/db"
+	"my-story-time-api/infrastructure/shared/utils/extension"
+
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"mytimes-api/domain/story"
-	"mytimes-api/infrastructure/config/db"
-	"mytimes-api/infrastructure/shared/utils/extension"
 )
 
 type storyRepository struct {
 	storyCollection *mongo.Collection
 }
 
-func ProvideStoryRepository(collections db.Collections) story.StoryRepository {
+func NewStoryRepository(collections db.Collections) story.StoryRepository {
 	storyCollection := collections.Get("story")
 
 	repo := storyRepository{storyCollection}

@@ -3,13 +3,13 @@ package db
 import "go.mongodb.org/mongo-driver/mongo"
 
 type Databases struct {
-	myTimesDB *mongo.Database
+	myStoryTimeDB *mongo.Database
 }
 
-func ProvideDatabases(client *mongo.Client) *Databases {
-	myTimesDB := client.Database("my_times")
+func NewDatabases(client *mongo.Client) *Databases {
+	myStoryTimeDB := client.Database("my_times")
 
 	return &Databases{
-		myTimesDB,
+		myStoryTimeDB,
 	}
 }

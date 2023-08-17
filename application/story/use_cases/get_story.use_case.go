@@ -1,6 +1,6 @@
 package use_cases
 
-import "mytimes-api/domain/story"
+import "my-story-time-api/domain/story"
 
 type GetStoryUseCase interface {
 	Execute(id string) (*story.Story, error)
@@ -10,7 +10,7 @@ type getStoryUseCase struct {
 	storyRepository story.StoryRepository
 }
 
-func ProvideGetStoryUseCase(storyRepository story.StoryRepository) GetStoryUseCase {
+func NewGetStoryUseCase(storyRepository story.StoryRepository) GetStoryUseCase {
 	return &getStoryUseCase{storyRepository}
 }
 

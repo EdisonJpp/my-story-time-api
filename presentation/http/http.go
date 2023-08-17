@@ -8,7 +8,7 @@ import (
 	"go.uber.org/fx"
 )
 
-func ProvideHttp(lc fx.Lifecycle) *fiber.App {
+func NewHttp(lc fx.Lifecycle) *fiber.App {
 	app := fiber.New()
 	app.Use(cors.New())
 

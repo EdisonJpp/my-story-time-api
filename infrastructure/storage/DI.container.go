@@ -3,5 +3,5 @@ package storage
 import "go.uber.org/fx"
 
 var DIContainer = fx.Options(
-	fx.Provide(ProvideStorageClient, ProvideStorageRepository),
+	fx.Provide(NewStorageClient, NewStorageRepository),
 )

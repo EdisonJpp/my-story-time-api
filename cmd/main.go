@@ -1,9 +1,9 @@
 package main
 
 import (
-	"mytimes-api/application"
-	"mytimes-api/infrastructure"
-	"mytimes-api/presentation"
+	"my-story-time-api/application"
+	"my-story-time-api/infrastructure"
+	"my-story-time-api/presentation"
 
 	"go.uber.org/fx"
 )

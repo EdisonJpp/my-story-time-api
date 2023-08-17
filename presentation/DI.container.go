@@ -1,8 +1,9 @@
 package presentation
 
 import (
+	"my-story-time-api/presentation/http"
+
 	"go.uber.org/fx"
-	"mytimes-api/presentation/http"
 )
 
 var DIContainer = fx.Options(

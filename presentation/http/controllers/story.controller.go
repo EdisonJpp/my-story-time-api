@@ -2,11 +2,12 @@ package controllers
 
 import (
 	"errors"
-	"github.com/gofiber/fiber/v2"
 	"mime/multipart"
-	"mytimes-api/application/story/use_cases"
-	"mytimes-api/domain/story"
+	"my-story-time-api/application/story/use_cases"
+	"my-story-time-api/domain/story"
 	"strconv"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 type StoryController struct {
@@ -16,7 +17,7 @@ type StoryController struct {
 	createStoryUseCase use_cases.CreateStoryUseCase
 }
 
-func ProvideStoryController(
+func NewStoryController(
 	app *fiber.App,
 	getStoriesUseCase use_cases.GetStoriesUseCase,
 	getStoryUseCase use_cases.GetStoryUseCase,

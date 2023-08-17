@@ -1,10 +1,11 @@
 package auth
 
 import (
+	useCases "my-story-time-api/application/auth/use_cases"
+
 	"go.uber.org/fx"
-	useCases "mytimes-api/application/auth/use_cases"
 )
 
 var DIContainer = fx.Options(
-	fx.Provide(useCases.ProvideSignInUseCase),
+	fx.Provide(useCases.NewSignInUseCase),
 )
