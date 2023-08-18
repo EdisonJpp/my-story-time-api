@@ -6,14 +6,17 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"go.uber.org/fx"
+	"my-story-time-api/presentation/http/middleware"
 )
 
 func NewHttp(lc fx.Lifecycle) *fiber.App {
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		ErrorHandler: middleware.ErrorHandlerMiddleware,
+	})
 	app.Use(cors.New())
 
 	app.Get("/", func(ctx *fiber.Ctx) error {
-		return ctx.Send([]byte("Welcome to the authentication-services!"))
+		return ctx.Send([]byte("Welcome to  My Story Time Api!"))
 	})
 
 	lc.Append(fx.Hook{

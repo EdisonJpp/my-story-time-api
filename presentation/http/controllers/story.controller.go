@@ -4,6 +4,7 @@ import (
 	"errors"
 	"mime/multipart"
 	"my-story-time-api/application/story/use_cases"
+	"my-story-time-api/domain/shared"
 	"my-story-time-api/domain/story"
 	"strconv"
 
@@ -54,17 +55,17 @@ func (c *StoryController) getStory(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
 
 	if id == "" {
-		return ctx.Status(fiber.StatusBadRequest).SendString("ID_IS_REQUIRED")
+		return &shared.HttpException{Code: fiber.StatusBadRequest, Message: "ID_IS_REQUIRED"}
 	}
 
 	item, err := c.getStoryUseCase.Execute(id)
 
 	if err != nil {
 		if errors.Is(err, story.ErrStoryNotFound) {
-			return ctx.Status(fiber.StatusNotFound).SendString(err.Error())
+			return &shared.HttpException{Code: fiber.StatusNotFound, Message: err.Error()}
 		}
 
-		return ctx.Status(fiber.StatusInternalServerError).SendString(err.Error())
+		return err
 	}
 
 	return ctx.JSON(item)
