@@ -2,10 +2,13 @@ package controllers
 
 import (
 	"errors"
+	"github.com/go-playground/validator/v10"
 	"mime/multipart"
 	"my-story-time-api/application/story/use_cases"
 	"my-story-time-api/domain/shared"
 	"my-story-time-api/domain/story"
+	storyDto "my-story-time-api/presentation/http/dto/story"
+	"my-story-time-api/presentation/http/middleware"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
@@ -16,6 +19,7 @@ type StoryController struct {
 	getStoriesUseCase  use_cases.GetStoriesUseCase
 	getStoryUseCase    use_cases.GetStoryUseCase
 	createStoryUseCase use_cases.CreateStoryUseCase
+	validator          *validator.Validate
 }
 
 func NewStoryController(
@@ -23,12 +27,14 @@ func NewStoryController(
 	getStoriesUseCase use_cases.GetStoriesUseCase,
 	getStoryUseCase use_cases.GetStoryUseCase,
 	createStoryUseCase use_cases.CreateStoryUseCase,
+	validator *validator.Validate,
 ) *StoryController {
 	storyController := StoryController{
 		app,
 		getStoriesUseCase,
 		getStoryUseCase,
 		createStoryUseCase,
+		validator,
 	}
 
 	registerStoryRoutes(&storyController)
@@ -36,27 +42,19 @@ func NewStoryController(
 	return &storyController
 }
 
-func registerStoryRoutes(storyController *StoryController) {
-	storyController.app.Get("/stories", storyController.getStories)
-	storyController.app.Get("/stories/:id", storyController.getStory)
-	storyController.app.Post("/stories", storyController.createStory)
-}
+func registerStoryRoutes(sc *StoryController) {
+	sc.app.Get(
+		"/stories/:id",
+		middleware.InputValidatorMiddleware(sc.validator, middleware.ParamsValidator, &storyDto.GetStoryRequestDto{}),
+		sc.getStory,
+	)
 
-func (c *StoryController) getStories(ctx *fiber.Ctx) error {
-	page, _ := strconv.Atoi(ctx.Query("page"))
-	pageSize, _ := strconv.Atoi(ctx.Query("pageSize"))
-
-	stories, _ := c.getStoriesUseCase.Execute("222", page, pageSize)
-
-	return ctx.JSON(stories)
+	sc.app.Get("/stories", sc.getStories)
+	sc.app.Post("/stories", sc.createStory)
 }
 
 func (c *StoryController) getStory(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
-
-	if id == "" {
-		return &shared.HttpException{Code: fiber.StatusBadRequest, Message: "ID_IS_REQUIRED"}
-	}
 
 	item, err := c.getStoryUseCase.Execute(id)
 
@@ -69,6 +67,15 @@ func (c *StoryController) getStory(ctx *fiber.Ctx) error {
 	}
 
 	return ctx.JSON(item)
+}
+
+func (c *StoryController) getStories(ctx *fiber.Ctx) error {
+	page, _ := strconv.Atoi(ctx.Query("page"))
+	pageSize, _ := strconv.Atoi(ctx.Query("pageSize"))
+
+	stories, _ := c.getStoriesUseCase.Execute("222", page, pageSize)
+
+	return ctx.JSON(stories)
 }
 
 func (c *StoryController) createStory(ctx *fiber.Ctx) error {
