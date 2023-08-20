@@ -3,7 +3,7 @@
 
 
 ## Idea
-Being able to save your big/little/deep/fun stories that you want to remember in the future and be able to share them with friends anonymously or with you as the author. The stories could be streamed through writing or voice notes.
+Stories or mini-stories happen to all of us, together or alone, funny, sad, dramatic, strange, loving, loose... etc. What we want is to keep safe those experiences that once made us feel something that we would like to remember again, being intimately or publicly.
 
 ## Architecture
 * Domain-Driver Design 
