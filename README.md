@@ -15,6 +15,7 @@ Stories or mini-stories happen to all of us, together or alone, funny, sad, dram
 - [Fiber](https://docs.gofiber.io/)
 - [MongoDB](https://www.mongodb.com/)
 - [Google Cloud Storage](https://cloud.google.com/storage/)
+- [Fx-uber](https://uber-go.github.io/fx)
 
 
 ## Developers
