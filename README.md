@@ -38,7 +38,7 @@ Guided by the principles of Domain-Driven Design, we're not just building an API
 
 1. **Explore the Docs:** Dive into our comprehensive documentation to understand the platform's heartbeat.
 2. **Join the Quest:** Explore our vibrant issue tracker, where challenges await that align with your skills and passions.
-3. **Collaborate and Conquer:** Join our dynamic Slack community, where brilliant minds converge to shape the future.
+3. **Collaborate and Conquer:** Join our dynamic [Discord community](https://discord.gg/7S5j2JSd), where brilliant minds converge to shape the future.
 4. **Leave Your Mark:** Your code can be the ink that etches stories into the digital tapestry, a lasting legacy.
 
 ## Recognition and Evolution:
