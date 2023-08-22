@@ -12,7 +12,7 @@ type DB struct {
 }
 
 func NewMongoClient(lc fx.Lifecycle) (*mongo.Client, error) {
-	clientOptions := options.Client().ApplyURI("mongodb+srv://edisonjpp:ParWWP2It24jWOUY@cluster0.1tvig.mongodb.net/?retryWrites=true&w=majority")
+	clientOptions := options.Client().ApplyURI("mongodb://mongodb:27017")
 	client, err := mongo.Connect(context.Background(), clientOptions)
 
 	if err != nil {
