@@ -32,7 +32,8 @@ Guided by the principles of Domain-Driven Design, we're not just building an API
 1. **Clone the Repository:** `git clone git@github.com:EdisonJpp/my-story-time-api.git`
 2. **Navigate to the Directory:** `cd my-story-time-api`
 3. **Run Docker Compose:** `docker-compose up -d`
-4. **Run App:** `go cmd/main.go`
+4. **Install dependencies:** `go mod download`
+5. **Run App:** `go cmd/main.go`
 
 ## How You Can Be Part of the Journey:
 
