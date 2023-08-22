@@ -12,7 +12,7 @@ type DB struct {
 }
 
 func NewMongoClient(lc fx.Lifecycle) (*mongo.Client, error) {
-	clientOptions := options.Client().ApplyURI("mongodb://mongodb:27017")
+	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
 	client, err := mongo.Connect(context.Background(), clientOptions)
 
 	if err != nil {
