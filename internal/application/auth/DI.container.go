@@ -1,7 +1,7 @@
 package auth
 
 import (
-	useCases "my-story-time-api/application/auth/use_cases"
+	useCases "my-story-time-api/internal/application/auth/use_cases"
 
 	"go.uber.org/fx"
 )

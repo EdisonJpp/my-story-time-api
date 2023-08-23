@@ -2,9 +2,9 @@ package use_cases
 
 import (
 	"mime/multipart"
-	"my-story-time-api/domain/storage"
-	"my-story-time-api/domain/story"
-	"my-story-time-api/infrastructure/shared/utils"
+	"my-story-time-api/internal/domain/storage"
+	story2 "my-story-time-api/internal/domain/story"
+	"my-story-time-api/internal/infrastructure/shared/utils"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -18,19 +18,19 @@ type CreateStoryUseCaseRequest struct {
 }
 
 type CreateStoryUseCase interface {
-	Execute(request *CreateStoryUseCaseRequest) (*story.Story, error)
+	Execute(request *CreateStoryUseCaseRequest) (*story2.Story, error)
 }
 
 type createStoryUseCase struct {
-	storyRepository   story.StoryRepository
+	storyRepository   story2.StoryRepository
 	storageRepository storage.StorageRepository
 }
 
-func NewCreateStoryUseCase(storyRepository story.StoryRepository, storageRepository storage.StorageRepository) CreateStoryUseCase {
+func NewCreateStoryUseCase(storyRepository story2.StoryRepository, storageRepository storage.StorageRepository) CreateStoryUseCase {
 	return &createStoryUseCase{storyRepository, storageRepository}
 }
 
-func (r *createStoryUseCase) Execute(request *CreateStoryUseCaseRequest) (*story.Story, error) {
+func (r *createStoryUseCase) Execute(request *CreateStoryUseCaseRequest) (*story2.Story, error) {
 	var fileUrl string
 	var fileSize int
 
@@ -51,10 +51,10 @@ func (r *createStoryUseCase) Execute(request *CreateStoryUseCaseRequest) (*story
 		fileSize = file.ChunkSize
 	}
 
-	return r.storyRepository.Create(story.Story{
+	return r.storyRepository.Create(story2.Story{
 		ID:      primitive.NewObjectID(),
 		Caption: request.Caption,
-		File: story.File{
+		File: story2.File{
 			Url:  fileUrl,
 			Size: fileSize,
 		},

@@ -2,9 +2,8 @@ package presentation
 
 import (
 	"github.com/go-playground/validator/v10"
-	"my-story-time-api/presentation/http"
-
 	"go.uber.org/fx"
+	"my-story-time-api/internal/presentation/http"
 )
 
 var DIContainer = fx.Options(

@@ -4,11 +4,11 @@ import (
 	"errors"
 	"github.com/go-playground/validator/v10"
 	"mime/multipart"
-	"my-story-time-api/application/story/use_cases"
-	"my-story-time-api/domain/shared"
-	"my-story-time-api/domain/story"
-	storyDto "my-story-time-api/presentation/http/dto/story"
-	"my-story-time-api/presentation/http/middleware"
+	use_cases2 "my-story-time-api/internal/application/story/use_cases"
+	"my-story-time-api/internal/domain/shared"
+	"my-story-time-api/internal/domain/story"
+	storyDto "my-story-time-api/internal/presentation/http/dto/story"
+	"my-story-time-api/internal/presentation/http/middleware"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
@@ -16,17 +16,17 @@ import (
 
 type StoryController struct {
 	app                *fiber.App
-	getStoriesUseCase  use_cases.GetStoriesUseCase
-	getStoryUseCase    use_cases.GetStoryUseCase
-	createStoryUseCase use_cases.CreateStoryUseCase
+	getStoriesUseCase  use_cases2.GetStoriesUseCase
+	getStoryUseCase    use_cases2.GetStoryUseCase
+	createStoryUseCase use_cases2.CreateStoryUseCase
 	validator          *validator.Validate
 }
 
 func NewStoryController(
 	app *fiber.App,
-	getStoriesUseCase use_cases.GetStoriesUseCase,
-	getStoryUseCase use_cases.GetStoryUseCase,
-	createStoryUseCase use_cases.CreateStoryUseCase,
+	getStoriesUseCase use_cases2.GetStoriesUseCase,
+	getStoryUseCase use_cases2.GetStoryUseCase,
+	createStoryUseCase use_cases2.CreateStoryUseCase,
 	validator *validator.Validate,
 ) *StoryController {
 	storyController := StoryController{
@@ -92,7 +92,7 @@ func (c *StoryController) createStory(ctx *fiber.Ctx) error {
 		file = *fileValue
 	}
 
-	execute, err := c.createStoryUseCase.Execute(&use_cases.CreateStoryUseCaseRequest{
+	execute, err := c.createStoryUseCase.Execute(&use_cases2.CreateStoryUseCaseRequest{
 		Caption: caption,
 		IsAudio: isAudio,
 		Text:    text,

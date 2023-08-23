@@ -1,8 +1,8 @@
 package application
 
 import (
-	"my-story-time-api/application/auth"
-	"my-story-time-api/application/story"
+	"my-story-time-api/internal/application/auth"
+	"my-story-time-api/internal/application/story"
 
 	"go.uber.org/fx"
 )

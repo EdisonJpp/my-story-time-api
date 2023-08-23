@@ -4,7 +4,7 @@ import (
 	"context"
 	"io"
 	"mime/multipart"
-	storageDomain "my-story-time-api/domain/storage"
+	storageDomain "my-story-time-api/internal/domain/storage"
 
 	"cloud.google.com/go/storage"
 )

@@ -1,11 +1,10 @@
 package main
 
 import (
-	"my-story-time-api/application"
-	"my-story-time-api/infrastructure"
-	"my-story-time-api/presentation"
-
 	"go.uber.org/fx"
+	"my-story-time-api/internal/application"
+	"my-story-time-api/internal/infrastructure"
+	"my-story-time-api/internal/presentation"
 )
 
 func main() {

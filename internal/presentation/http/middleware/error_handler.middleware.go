@@ -3,7 +3,7 @@ package middleware
 import (
 	"errors"
 	"github.com/gofiber/fiber/v2"
-	"my-story-time-api/domain/shared"
+	"my-story-time-api/internal/domain/shared"
 )
 
 var ErrorHandlerMiddleware = func(c *fiber.Ctx, err error) error {

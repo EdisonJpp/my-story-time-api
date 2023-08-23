@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	authUseCases "my-story-time-api/application/auth/use_cases"
+	authUseCases "my-story-time-api/internal/application/auth/use_cases"
 
 	"github.com/gofiber/fiber/v2"
 )

@@ -6,7 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"go.uber.org/fx"
-	"my-story-time-api/presentation/http/middleware"
+	"my-story-time-api/internal/presentation/http/middleware"
 )
 
 func NewHttp(lc fx.Lifecycle) *fiber.App {
