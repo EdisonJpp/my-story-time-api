@@ -7,7 +7,10 @@ import (
 )
 
 var DIContainer = fx.Options(
-	fx.Provide(db2.NewMongoClient),
-	fx.Provide(db2.NewDatabases),
-	fx.Provide(db2.NewCollections),
+	fx.Provide(
+		NewConfig,
+		db2.NewMongoClient,
+		db2.NewDatabases,
+		db2.NewCollections,
+	),
 )
