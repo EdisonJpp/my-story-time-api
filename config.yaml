@@ -1,3 +1,8 @@
-Mongo:  
+Mongo:
   uri: mongodb://localhost:27017
   db: local_my_story_time
+
+Aws:
+  accessKey: A-ACCESS-KEY
+  secretAccessKey: A-SECRET-ACCESS-KEY
+  region: us-east-1
