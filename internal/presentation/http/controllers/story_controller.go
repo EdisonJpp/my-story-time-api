@@ -4,7 +4,7 @@ import (
 	"errors"
 	"github.com/go-playground/validator/v10"
 	"mime/multipart"
-	use_cases2 "my-story-time-api/internal/application/story/use_cases"
+	use_cases2 "my-story-time-api/internal/application/story/use-cases"
 	"my-story-time-api/internal/domain/shared"
 	"my-story-time-api/internal/domain/story"
 	storyDto "my-story-time-api/internal/presentation/http/dto/story"
