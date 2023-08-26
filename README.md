@@ -27,7 +27,15 @@ Guided by the principles of Domain-Driven Design, we're not just building an API
 - **Google Cloud Storage:** Enrich your narratives with media, powered by the reliable scalability of Google Cloud Storage.
 - **Fx-uber:** We're using Fx-uber to orchestrate our application's dependencies effortlessly.
 
-## Getting Started with Docker Compose:
+## Domain and Services that we're building
+![Domain](/.docs/domain.png)
+
+![Services](/.docs/services.png)
+
+## Getting Started:
+> **Note:** 
+> Check the config.yaml file and provide the required variables.
+>  To put on work the Cloud Storage you need to get google-cloud-storage-credentials.json file from Google Cloud Storage or [join our discord to get one](https://discord.gg/7S5j2JSd). 
 
 1. **Clone the Repository:** `git clone git@github.com:EdisonJpp/my-story-time-api.git`
 2. **Navigate to the Directory:** `cd my-story-time-api`
