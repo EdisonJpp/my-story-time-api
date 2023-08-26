@@ -1,7 +1,7 @@
 package story
 
 import (
-	use_cases2 "my-story-time-api/internal/application/story/use_cases"
+	use_cases2 "my-story-time-api/internal/application/story/use-cases"
 
 	"go.uber.org/fx"
 )
