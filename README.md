@@ -35,7 +35,7 @@ Guided by the principles of Domain-Driven Design, we're not just building an API
 ## Getting Started:
 > **Note:** 
 > Check the config.yaml file and provide the required variables.
->  To put on work the Cloud Storage you need to get google-cloud-storage-credentials.json file from Google Cloud Storage or [join our discord to get one](https://discord.gg/7S5j2JSd). 
+>  To put on work the Cloud Storage you need to get google-cloud-storage-credentials.json file from Google Cloud Storage or [join our discord to get one](https://discord.gg/VwXCaMtnf). 
 
 1. **Clone the Repository:** `git clone git@github.com:EdisonJpp/my-story-time-api.git`
 2. **Navigate to the Directory:** `cd my-story-time-api`
@@ -47,7 +47,7 @@ Guided by the principles of Domain-Driven Design, we're not just building an API
 
 1. **Explore the Docs:** Dive into our comprehensive documentation to understand the platform's heartbeat.
 2. **Join the Quest:** Explore our vibrant issue tracker, where challenges await that align with your skills and passions.
-3. **Collaborate and Conquer:** Join our dynamic [Discord community](https://discord.gg/7S5j2JSd), where brilliant minds converge to shape the future.
+3. **Collaborate and Conquer:** Join our dynamic [Discord community](https://discord.gg/VwXCaMtnf), where brilliant minds converge to shape the future.
 4. **Leave Your Mark:** Your code can be the ink that etches stories into the digital tapestry, a lasting legacy.
 
 ## Recognition and Evolution:
